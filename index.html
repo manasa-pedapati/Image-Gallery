@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Photo Gallery</title>
+
+<body>
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="./images/img1.jpg" style="width:100%" onclick="currentSlide(1)" alt="SPRING PINK FLOWER">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="./images/img2.jpg" style="width:100%" onclick="currentSlide(2)" alt="YELLOW SUMMER FLOWER">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="./images/img3.jpg" style="width:100%" onclick="currentSlide(3)" alt="YELLOW DAISY">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="./images/img4.jpg" style="width:100%" onclick="currentSlide(4)" alt="PINK DAISIES">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="./images/img5.jpg" style="width: 100%" onclick="currentSlide(5)" alt="SNOWDROP FLOWER">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="./images/img6.jpg" style="width:100%" onclick="currentSlide(6)"alt="PINK LOTUS">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="./images/img7.jpg" style="width:100%" onclick="currentSlide(7)" alt="SPRING TULIPS">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="./images/img8.jpg" style="width:100%" onclick="currentSlide(8)" alt="BEAUTIFUL PETUNIAS">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="./images/img9.jpg" style="width: 100%" onclick="currentSlide(9)" alt="BLUE TULIPS">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="./images/img10.jpg" style="width:100%" onclick="currentSlide(10)" alt="RED FLOWER">
+    </div>
+
+  </div>
+  <div class="head"><h1 style="text-align:center">Photo Gallery</h1></div>
+  <div class="container">
+    <div class="mySlides">
+      <div class="numbertext">1 / 10</div>    
+      <img src="./images/img1.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 10</div>
+      <img src="./images/img2.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 10</div>
+      <img src="./images/img3.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 10</div>
+      <img src="./images/img4.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">5 / 10</div>
+      <img src="./images/img5.jpg" style="width: 50%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">6 / 10</div>
+      <img src="./images/img6.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">7 / 10</div>
+      <img src="./images/img7.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">8 / 10</div>
+      <img src="./images/img8.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">9 / 10</div>
+      <img src="./images/img9.jpg" style="width:50%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">10 / 10</div>
+      <img src="./images/img10.jpg" style="width:auto">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += "active";
+  captionText.innerHTML = dots[slideIndex - 1].alt;
+}
+</script>
+   
+</body>
+</html>
